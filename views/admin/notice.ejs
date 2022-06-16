@@ -1,5 +1,6 @@
 <%- include('../partials/header.ejs') %> 
-
+<%- include('../partials/navbar.ejs') %> 
+<h1 class="header">Create Notice</h1>
 <form id="form" method="post" action="/admin/notice">
     <input type="text" name="title" id="title" placeholder="Title" required="true">
     <br><br> 
@@ -9,6 +10,22 @@
     <button type="submit">Create Notice</button>
 </form>
 
+<style>
+    body{
+        background-color:rgb(13, 12, 12);
+        color: #fff;
+        font-family: 'Outfit', sans-serif;
+        text-align:center;
+        justify-content:center;
+        align-items:center;
+    }
+    .header{
+        color: #16e16e;
+        font-size: 6rem;
+        font-weight: 500;
+        margin-top: 30px;
+    }
 
+</style>
 
 <%- include('../partials/footer.ejs') %> 

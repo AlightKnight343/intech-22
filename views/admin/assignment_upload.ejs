@@ -1,5 +1,5 @@
 <%- include('../partials/header.ejs') %> 
-
+<h1 class="header">Create Assignments</h1>
 <form id="form">
     <input type="text" name="title" id="title" placeholder="Title" required="true">
     <br><br> 
@@ -21,6 +21,34 @@
 
 <button id="btn" type="submit">Create New Assignment</button>
 </form>
+
+
+<style>
+    body{
+        background-color:rgb(13, 12, 12);
+        color: #fff;
+        font-family: 'Outfit', sans-serif;
+        text-align:center;
+        justify-content:center;
+        align-items:center;
+    }
+    .header{
+        color: #16e16e;
+        font-size: 6rem;
+        font-weight: 500;
+        margin-top: 30px;
+    }
+    a{
+        font-size: 2rem ;
+        text-decoration: none;
+        color: #16e16e;
+    }
+    a:hover{
+        text-decoration: none;
+        color: #1bc263; 
+    }
+
+</style>
 
 <script>
 var fileInput = document.getElementById('file');

@@ -1,6 +1,7 @@
 <%- include('../partials/header.ejs') %> 
+<%- include('../partials/navbar.ejs') %> 
 
-    <h1> <%= learningPlan.title %>  </h1>
+    <h1 class="header"> <%= learningPlan.title %>  </h1>
 
     <h3>Add Lesson</h3>
     <form action="/admin/managelearningplan/<%=learningPlan.id%>" method="post">
@@ -15,4 +16,22 @@
         <button type="submit">Add Lesson</button>
     </form>
 
+
+    <style>
+        body{
+            background-color:rgb(13, 12, 12);
+            color: #fff;
+            font-family: 'Outfit', sans-serif;
+            text-align:center;
+            justify-content:center;
+            align-items:center;
+        }
+        .header{
+            color: #16e16e;
+            font-size: 6rem;
+            font-weight: 500;
+            margin-top: 30px;
+        }
+    
+    </style>
 <%- include('../partials/footer.ejs') %> 
