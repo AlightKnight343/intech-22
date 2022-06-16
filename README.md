@@ -2,7 +2,7 @@
 
 Submission for InTech 2022
 
-###
+### Visit it at https://intech-22.alightknight343.repl.co
 
 ### Run locally
 
@@ -29,3 +29,6 @@ Start:
 
 Visit: 
 ```localhost:5000```
+
+### Known Issues
+You can select date before the actual day while creating assignments
