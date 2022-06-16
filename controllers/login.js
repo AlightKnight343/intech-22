@@ -16,8 +16,7 @@ const auth_login_post = (req, res, next) =>{
                     failureFlash:true
                 })(req, res, next);
             }else{
-                res.redirect('/auth/login'); 
-                console.log("unverified email")
+                res.send('Email not confirmed!');
             }
         }
     })

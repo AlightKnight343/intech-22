@@ -35,7 +35,7 @@ check(
       .array({ onlyFirstError: true })
       .map((err) => extractedErrors.push({ [err.param]: err.msg }));
     if (!errors.isEmpty()) {
-      return res.json({ error: extractedErrors });
+      return res.send({ error: extractedErrors });
     }
     next();
   }

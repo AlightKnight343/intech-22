@@ -95,12 +95,7 @@ const auth_register_post = async (req, res) => {
     }else{
       User.findOne({ email: email }).then((user) => {
         if (user) {
-          errors.push({ msg: "User already exists, try logging in instead." });
-          res.render("auth/register", {
-            errors,
-            title: "Register",
-            description: "Register",
-          });
+          res.send("Mail already in use for another account!")
         } else {
           const userId = nanoid();
           const emailToken = crypto.randomBytes(64).toString("hex");
