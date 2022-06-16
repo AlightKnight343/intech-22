@@ -1,0 +1,37 @@
+<%- include('../partials/header.ejs') %> 
+
+<h1 class="header">Admin Panel </h1>
+<h2> <%= user.username %>  </h2><br><br>
+<a href="/admin/students">View Students</a> <br>
+<a href="/admin/assignments">Manage Assignments</a><br>
+<a href="/admin/createlearningplan">Create Learning Plan</a><br>
+<a href="/admin/managelearningplans">Manage Learning Plans</a><br>
+
+<style>
+        body{
+            background-color:rgb(13, 12, 12);
+            color: #fff;
+            font-family: 'Outfit', sans-serif;
+            text-align:center;
+            justify-content:center;
+            align-items:center;
+        }
+        .header{
+            color: #16e16e;
+            font-size: 6rem;
+            font-weight: 500;
+            margin-top: 30px;
+        }
+        a{
+            font-size: 2rem ;
+            text-decoration: none;
+            color: #16e16e;
+        }
+        a:hover{
+            text-decoration: none;
+            color: #1bc263; 
+        }
+
+</style>
+
+<%- include('../partials/footer.ejs') %> 

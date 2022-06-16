@@ -1,0 +1,99 @@
+<%- include('../partials/header.ejs') %> 
+<%- include('../partials/navbar.ejs') %> 
+
+    <h1 class="header"> Submissions </h1> <br>
+    <% submissions.forEach(function(submission, index){%>
+        <% if(index %2 == 0) return %> 
+        <script>
+            const base64Url = '<%- submissions[index].file %>'
+            console.log(base64Url)
+            function toFile(){
+             var win = window.open();
+             win.document.write("<iframe width=100% height=100% src=" + base64Url + "></iframe>")
+        }
+        </script>
+        <div class="submission">
+            <h3> <%= submission.studentName %>  </a> </h3>
+            <p> <%= submission.date %>  </p>
+            <a class="button" onClick="toFile()">View Submission</a>
+        </div> 
+    <% }) %>
+
+    <style>
+        body{
+            background-color:rgb(13, 12, 12);
+            color: #fff;
+            font-family: 'Outfit', sans-serif;
+            text-align:center;
+            justify-content:center;
+            align-items:center;
+        }
+        .header{
+            color: #16e16e;
+            font-size: 6rem;
+            font-weight: 500;
+            margin-top: 30px;
+        }
+        .button{
+            position:relative;
+            padding: 10px 30px;
+            margin: 20px 15px;
+            color: #16e16e;
+            text-decoration: none;
+            letter-spacing: 2px;
+            font-size: 20px;
+            transition: 0.5s;
+            overflow: hidden;
+        }
+        .button:hover{
+            background: #16e16e;
+            color: #191919;
+            box-shadow: 0 0 50px #191919;
+            transition: 0.s;
+         }
+
+        .button:before{
+            content: '';
+            position: absolute;
+            top:0;
+            left: 0;
+            width: 10px;
+            height: 10px;
+            border-top: 2px solid #16e16e;
+            border-left: 2px solid #16e16e;
+            transition: 0.5s;
+        }
+
+        .button:hover:before{
+            width: 100%;
+            height:100%
+        }
+
+        .button:after{
+            content: '';
+            position: absolute;
+            bottom:0;
+            right: 0;
+            width: 10px;
+            height: 10px;
+            border-bottom: 2px solid #16e16e;
+            border-right: 2px solid #16e16e;
+            transition: 0.5s;
+        }
+
+        .button:hover:after{
+            width: 100%;
+            height:100%
+        }
+
+        .submission{
+            margin: 30px 20%;
+            padding: 20px;
+            background-color: #171717;
+            border-radius: 25px;
+        }
+
+
+    </style>
+
+<%- include('../partials/footer.ejs') %> 

@@ -1,0 +1,95 @@
+<%- include('../partials/header.ejs') %> 
+
+<form id="form">
+    <input type="text" name="title" id="title" placeholder="Title" required="true">
+    <br><br> 
+    <textarea type="text" name="description" id="description" placeholder="Description" required="true">
+    </textarea>
+    <br><br>
+    <select id="subject" name="subject">
+        <option value="English">English</option>
+        <option value="SST">SST</option>
+        <option value="Mathematics">Maths</option>
+        <option value="Science">Science</option>
+    </select>
+    <br> <br>
+    <input type="date" name="date" id="date" min="0" required="true">
+    <br> <br>
+
+<input type="file" name="file" id="file">
+<br><br>
+
+<button id="btn" type="submit">Create New Assignment</button>
+</form>
+
+<script>
+var fileInput = document.getElementById('file');
+
+
+
+const postRequest = (e)=>{
+
+e.preventDefault();
+
+const form = document.getElementById("form");
+const title = form.firstElementChild.value;
+const description = document.getElementById("description").value;
+const subject = document.getElementById("subject").value;
+const date = document.getElementById("date").value;
+
+if(file){
+    var reader = new FileReader();
+    reader.readAsDataURL(fileInput.files[0]);
+    reader.onload = function () {
+        console.log(reader.result);
+        const data = {
+        title: title,
+        description: description,
+        subject: subject,
+        date: date,
+        file: reader.result
+}
+fetch("/admin/assignments/upload", {
+        method: 'POST',
+        headers:{
+            'Content-Type':'application/json'
+        },
+        body: JSON.stringify(data),
+    })
+    .then((res) => {window.location.replace("http://localhost:5000/assignments");})
+    .catch((err) => console.log(err));
+    };
+    reader.onerror = function (error) {
+    console.log('Error: ', error);
+}
+}else{
+    const data = {
+        title: title,
+        description: description,
+        subject: subject,
+        date: date,
+        file: null
+}
+fetch("/admin/assignments/upload", {
+        method: 'POST',
+        headers:{
+            'Content-Type':'application/json'
+        },
+        body: JSON.stringify(data),
+    })
+    .then((res) => {window.location.replace("http://localhost:5000/assignments");})
+    .catch((err) => console.log(err));
+}
+
+
+
+
+}
+
+const btn = document.getElementById("btn")
+btn.addEventListener("click", postRequest);
+
+</script>
+
+
+<%- include('../partials/footer.ejs') %> 

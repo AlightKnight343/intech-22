@@ -1,0 +1,39 @@
+<%- include('./partials/header.ejs'); %>
+<%- include('./partials/navbar.ejs'); %>
+
+    <h1 class="header"> <%= notice.title %> </h1>
+    <div class="main">
+    <p> <span>Assigned Date: </span><%= notice.dateAssigned %>  </p> 
+        <br>
+        <p> <%= notice.description %>  </p>
+    </div>
+    <style>
+        body{
+            background-color:rgb(13, 12, 12);
+            color: #fff;
+            font-family: 'Outfit', sans-serif;
+            text-align:center;
+            justify-content:center;
+            align-items:center;
+        }
+        .header{
+            color: #16e16e;
+            font-size: 6rem;
+            font-weight: 500;
+            margin-top: 30px;
+        }
+        span{
+            color: #16e16e;
+            font-weight: 700;
+        }
+        .main h3, p, .main button{
+            margin-top: 15px
+        }
+        .main{
+            margin: 60px 100px;
+        }
+
+        
+    </style>
+
+<%- include('./partials/footer.ejs'); %>

@@ -1,0 +1,46 @@
+<%- include('../partials/header.ejs') %> 
+<%- include('../partials/navbar.ejs') %> 
+
+    <h1 class="header">Submissions</h1> <br>
+    <% assignments.forEach(function(assignment){%>
+        <div class="assignment">
+            <h3> <a href= "/admin/assignments/submissions/<%=assignment.id%>"> <%= assignment.title %>  </a> </h3>
+            <p> <%= assignment.subject %>  </p>
+        </div> 
+    <% }) %>
+
+    <style>
+        body{
+            background-color:rgb(13, 12, 12);
+            color: #fff;
+            font-family: 'Outfit', sans-serif;
+            text-align:center;
+            justify-content:center;
+            align-items:center;
+        }
+        .header{
+            color: #16e16e;
+            font-size: 6rem;
+            font-weight: 500;
+            margin-top: 30px;
+        }
+        a{
+            font-size: 2rem ;
+            text-decoration: none;
+            color: #16e16e;
+        }
+        a:hover{
+            text-decoration: none;
+            color: #1bc263; 
+        }
+        .assignment{
+            margin: 30px 20%;
+            padding: 20px;
+            background-color: #171717;
+            border-radius: 25px;
+        }
+
+
+    </style>
+
+<%- include('../partials/footer.ejs') %> 

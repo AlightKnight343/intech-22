@@ -1,0 +1,125 @@
+<%- include('./partials/header.ejs'); %>
+<%- include('./partials/navbar.ejs') %>
+
+    <div class="heading">
+        <h1 class="header">DASHBOARD</h1>
+    </div>
+    
+    <div class="quote">
+        <h2> "<%= quote.q %>"  </h2>
+        <p> -<%=quote.a%>  </p>
+    </div>
+    <div class="container">
+        <div class="row">
+    <div class="col news">
+        <h2>News</h2>
+        <a href=<%=news[0].webUrl%>> <p class="news-heading"><%= news[0].webTitle %></p></a> 
+        <a href=<%=news[1].webUrl%>> <p class="news-heading"><%= news[1].webTitle %></p></a> 
+        <a href=<%=news[2].webUrl%>> <p class="news-heading"><%= news[2].webTitle %></p></a> 
+        <a href=<%=news[3].webUrl%>> <p class="news-heading"><%= news[3].webTitle %></p></a> 
+        <a href=<%=news[4].webUrl%>> <p class="news-heading"><%= news[4].webTitle %></p></a> 
+    </div>
+
+    <div class="col profile">
+        <h2>Profile</h2>
+        <p class="name"> <span>Name: </span><%= user.username %> </p>
+        <p class="email"> <span>Email: </span><%= user.email %> </p>
+        <a href="/auth/logout" class="button">Logout</a>
+    </div>
+</div>
+</div>
+    <style>
+        body{
+            background-color:rgb(13, 12, 12);
+            color: #fff;
+            font-family: 'Outfit', sans-serif;
+        }
+        .header{
+            text-align:center;
+            justify-content:center;
+            align-items:center;
+            color: #16e16e;
+            font-size: 6rem;
+            font-weight: 500;
+            margin-top: 30px;
+        }
+
+        .quote{
+            text-align:center;
+            justify-content:center;
+            align-items:center;
+            margin: 40px 0;
+        }
+        .quote h2{
+            font-family: 'Merriweather';
+            color: rgb(179, 179, 179);
+            font-size: 1.5rem;
+            font-weight: 300;
+        }
+        .news a{
+            text-decoration: none;
+            color:#16e16e;
+            padding-right: 20px;
+        }
+        .profile p{
+            margin-top: 10px;
+            font-weight: 400;
+        }
+        .profile p span{
+            color: #16e16e;
+            font-weight: 600;
+        }
+        .button{
+            position:relative;
+            padding: 10px 30px;
+            margin: 20px 0;
+            color: #16e16e;
+            text-decoration: none;
+            letter-spacing: 2px;
+            font-size: 20px;
+            transition: 0.5s;
+            overflow: hidden;
+        }
+        .button:hover{
+            background: #16e16e;
+            color: #191919;
+            box-shadow: 0 0 50px #191919;
+            transition: 0.s;
+         }
+
+        .button:before{
+            content: '';
+            position: absolute;
+            top:0;
+            left: 0;
+            width: 10px;
+            height: 10px;
+            border-top: 2px solid #16e16e;
+            border-left: 2px solid #16e16e;
+            transition: 0.5s;
+        }
+
+        .button:hover:before{
+            width: 100%;
+            height:100%
+        }
+
+        .button:after{
+            content: '';
+            position: absolute;
+            bottom:0;
+            right: 0;
+            width: 10px;
+            height: 10px;
+            border-bottom: 2px solid #16e16e;
+            border-right: 2px solid #16e16e;
+            transition: 0.5s;
+        }
+
+        .button:hover:after{
+            width: 100%;
+            height:100%
+        }
+    </style>
+
+<%- include('./partials/footer.ejs'); %>

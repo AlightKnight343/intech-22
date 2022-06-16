@@ -1,0 +1,14 @@
+<%- include('../partials/header.ejs') %> 
+
+<form id="form" method="post" action="/admin/createlearningplan">
+    <input type="text" name="title" id="title" placeholder="Title" required="true">
+    <br><br> 
+    <textarea type="text" name="description" id="description" placeholder="Description" required="true">
+    </textarea>
+    <br><br>
+    <button type="submit">Create Learning Plan</button>
+</form>
+
+
+
+<%- include('../partials/footer.ejs') %> 

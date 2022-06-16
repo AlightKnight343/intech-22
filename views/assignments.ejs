@@ -1,0 +1,95 @@
+<%- include('./partials/header.ejs') %> 
+<%- include('./partials/navbar.ejs') %> 
+
+    <h1 class="header">ASSIGNMENTS</h1>
+    <input type="text" name="search" id="search" placeholder="Search" autocomplete="off">
+    <img onClick="sendData()" src="https://www.freepnglogos.com/uploads/search-png/search-icon-clip-art-clkerm-vector-clip-art-online-22.png" alt="">
+    <div id="searchResults"></div><br>
+
+<div class="assignments">
+    <% assignments.forEach(function(assignment){%>
+        <div class="assignment">
+            <h3> <a href= "/assignments/<%=assignment.id%>"> <%= assignment.title %>  </a> </h3>
+            <p> <%= assignment.subject %>  </p>
+        </div> 
+    <% }) %>
+</div>
+
+
+    <style>
+        body{
+            background-color:rgb(13, 12, 12);
+            color: #fff;
+            font-family: 'Outfit', sans-serif;
+            text-align:center;
+            justify-content:center;
+            align-items:center;
+        }
+        .header{
+            color: #16e16e;
+            font-size: 6rem;
+            font-weight: 500;
+            margin-top: 30px;
+        }
+        a{
+            text-decoration: none;
+            color: #16e16e;
+        }
+        a:hover{
+            text-decoration: none;
+            color: #1bc263; 
+        }
+        .assignment{
+            margin: 30px 20%;
+            padding: 20px;
+            background-color: #171717;
+            border-radius: 25px;
+        }
+
+        input{
+            width: 60%;
+            height: 50px;
+            border-radius:25px;
+            text-align: center;
+            background-color: rgb(179, 179, 179);
+        }
+
+        img{
+            height:50px;
+            width:50px;
+        }
+        img:hover{
+            cursor:pointer;
+        }
+    </style>
+
+
+    <script>
+    function sendData(){
+        const searchResults = document.getElementById("searchResults");
+        const search = document.getElementById("search");
+        const payload = search.value
+        if(payload == ' ' || payload==''){
+            searchResults.innerHTML = '';
+        }else{
+            fetch('/assignments/search', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({payload:payload})
+            }).then(res=> res.json()).then(data =>{
+                let results = data.results;
+                searchResults.innerHTML = ''
+                if(results.length > 1) searchResults.innerHTML('<p>No search results found!</p>')
+                results.forEach((result, index) => {
+                    if(index > 0) searchResults.innerHTML += '<hr>'
+                    searchResults.innerHTML += `<a href="/assignments/${result.id}" <h3> ${result.title} </h3>`
+                }); 
+            })
+        }
+
+        
+        }
+    </script>
+    
+<%- include('./partials/footer.ejs') %>
+

@@ -1,0 +1,18 @@
+<%- include('../partials/header.ejs') %> 
+
+    <h1> <%= learningPlan.title %>  </h1>
+
+    <h3>Add Lesson</h3>
+    <form action="/admin/managelearningplan/<%=learningPlan.id%>" method="post">
+        <input type="text" name="title" id="title" placeholder="Title" required="true">
+        <br><br> 
+        <textarea type="text" name="description" id="description" placeholder="Description" required="true">
+        </textarea>
+        <br><br>
+        <label for="resources">Link (Ex. youtube, document link etc.)</label>
+        <input type="text" name="resources" id="resources" placeholder="Resources" required="true">
+        <br><br>
+        <button type="submit">Add Lesson</button>
+    </form>
+
+<%- include('../partials/footer.ejs') %> 

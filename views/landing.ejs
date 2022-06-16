@@ -1,0 +1,106 @@
+<%- include('./partials/header.ejs'); %>
+
+<title>Title</title>
+</head>
+<body>
+
+    <%- include('./partials/navbar.ejs') %>
+
+    <div class="landing">
+        <div class="heading">
+            <h1> <span class="hcet">HCET</span> <br> <span class="school">SCHOOL</span></h1>
+            <p class="motto"> "Where modernity blends with tradition" </p>    
+        </div>
+        <div class="buttons">
+            <a class="button" href="/auth/register">Register</a>
+            <a class="button" href="/auth/login">Login</a>
+        </div>
+    </div>
+
+    <style>
+        body{
+            background-color:rgb(13, 12, 12);
+        }
+        .heading{
+            text-align:center;
+            justify-content:center;
+            align-items:center;
+            font-family: 'Outfit';
+        }
+        .hcet{
+            color: #191919;
+            font-weight: 900;
+            font-size: 14rem;
+        }
+        .school{
+            color:#16e16e;
+            font-weight: 800;
+            font-size: 10rem;
+        }
+        .motto{
+            color:rgb(179, 179, 179)
+        }
+
+        .button{
+            position:relative;
+            padding: 10px 30px;
+            margin: 0 15px;
+            color: #16e16e;
+            text-decoration: none;
+            letter-spacing: 2px;
+            font-size: 20px;
+            transition: 0.5s;
+            overflow: hidden;
+            margin-right: 60px;
+            margin-left: 60px
+        }
+        .button:hover{
+            background: #16e16e;
+            color: #191919;
+            box-shadow: 0 0 50px #191919;
+            transition: 0.s;
+         }
+
+        .button:before{
+            content: '';
+            position: absolute;
+            top:0;
+            left: 0;
+            width: 10px;
+            height: 10px;
+            border-top: 2px solid #16e16e;
+            border-left: 2px solid #16e16e;
+            transition: 0.5s;
+        }
+
+        .button:hover:before{
+            width: 100%;
+            height:100%
+        }
+
+        .button:after{
+            content: '';
+            position: absolute;
+            bottom:0;
+            right: 0;
+            width: 10px;
+            height: 10px;
+            border-bottom: 2px solid #16e16e;
+            border-right: 2px solid #16e16e;
+            transition: 0.5s;
+        }
+
+        .button:hover:after{
+            width: 100%;
+            height:100%
+        }
+        .buttons{
+            text-align:center;
+            justify-content:center;
+            align-items:center;
+            margin-top: 60px;
+        }
+
+
+    </style>
+<%- include('./partials/footer.ejs') %> 

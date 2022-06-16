@@ -1,0 +1,8 @@
+<%- include('../partials/header.ejs') %>
+<h1>Manage Learning Plans</h1> 
+<% learningPlans.forEach(function(learningPlan){%>
+    <div>
+        <h3> <a href= "/admin/managelearningplan/<%=learningPlan.id%>"> <%= learningPlan.title %>  </a> </h3>
+    </div> 
+<% }) %>
+<%- include('../partials/footer.ejs') %> 

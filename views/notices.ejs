@@ -1,0 +1,46 @@
+<%- include('./partials/header.ejs'); %>
+<%- include('./partials/navbar.ejs'); %>
+
+    <h1 class="header">Notices</h1>
+
+<div class="notices">
+    <% notices.forEach(function(notice){%>
+        <div class="notice">
+            <h3> <a href= "/notices/<%=notice.id%>"> <%= notice.title %>  </a> </h3>
+            <p> <%= notice.dateAssigned %>  </p>
+        </div> 
+    <% }) %>
+        
+</div>
+<style>
+        body{
+            background-color:rgb(13, 12, 12);
+            color: #fff;
+            font-family: 'Outfit', sans-serif;
+            text-align:center;
+            justify-content:center;
+            align-items:center;
+        }
+        .header{
+            color: #16e16e;
+            font-size: 6rem;
+            font-weight: 500;
+            margin-top: 30px;
+        }
+        a{
+            text-decoration: none;
+            color: #16e16e;
+        }
+        a:hover{
+            text-decoration: none;
+            color: #1bc263; 
+        }
+        .notice{
+            margin: 30px 20%;
+            padding: 20px;
+            background-color: #171717;
+            border-radius: 25px;
+        }
+</style>
+
+<%- include('./partials/footer.ejs'); %>

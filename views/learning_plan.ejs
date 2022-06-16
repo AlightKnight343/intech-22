@@ -1,0 +1,44 @@
+<%- include('./partials/header.ejs'); %>
+<%- include('./partials/navbar.ejs'); %>
+    <h1 class="header">
+        <%= learningPlan.title %> 
+    </h1>
+
+    <% learningPlan.lessons.forEach(function(lesson, index){%>
+        <% if(index%2 == 0) return; %> 
+        <div class="lesson">
+            <h3> <span>Title: </span> <%= lesson.title %>   </h3>
+            <p> <span>Description: </span><%= lesson.description %>  </p>
+            <p> <span>Resources: </span><strong> <%= lesson.resources %>  </strong> </p>
+        </div> 
+    <% }) %>
+
+
+    <style>
+        body{
+            background-color:rgb(13, 12, 12);
+            color: #fff;
+            font-family: 'Outfit', sans-serif;
+            text-align:center;
+            justify-content:center;
+            align-items:center;
+        }
+        .header{
+            color: #16e16e;
+            font-size: 6rem;
+            font-weight: 500;
+            margin-top: 30px;
+        }
+        .lesson{
+            margin: 30px 20%;
+            padding: 20px;
+            background-color: #171717;
+            border-radius: 25px;
+        }
+        span{
+            color: #1bc263;
+            font-weight: 700;
+        }
+    </style>
+    
+<%- include('./partials/footer.ejs') %> 
